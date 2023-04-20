@@ -1,4 +1,4 @@
-# Install script for directory: /home/MPD/mmsys23-main/mpd
+# Install script for directory: /home/MPD/GCShtreFinall/mpd
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

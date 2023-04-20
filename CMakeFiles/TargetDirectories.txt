@@ -1,5 +1,5 @@
-/home/MPD/mmsys23-main/CMakeFiles/rebuild_cache.dir
-/home/MPD/mmsys23-main/CMakeFiles/edit_cache.dir
-/home/MPD/mmsys23-main/mpd/CMakeFiles/rebuild_cache.dir
-/home/MPD/mmsys23-main/mpd/CMakeFiles/edit_cache.dir
-/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir
+/home/MPD/GCShtreFinall/CMakeFiles/rebuild_cache.dir
+/home/MPD/GCShtreFinall/CMakeFiles/edit_cache.dir
+/home/MPD/GCShtreFinall/mpd/CMakeFiles/rebuild_cache.dir
+/home/MPD/GCShtreFinall/mpd/CMakeFiles/edit_cache.dir
+/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir

@@ -8,6 +8,7 @@
 #include "congestioncontrol.hpp"
 #include "sessionstreamcontroller.hpp"
 #include "rrmultipathscheduler.hpp"
+#include <unordered_set>
 
 
 struct DemoTransportCtlConfig : public TransPortControllerConfig
@@ -125,6 +126,7 @@ private:
     std::unique_ptr<MultiPathSchedulerAlgo> m_multipathscheduler;/// multipath scheduler
     std::weak_ptr<MPDTransCtlHandler> m_transctlHandler; // transport module call back
     std::set<DataNumber> m_downloadPieces;/// main task download queue
+    std::unordered_set<DataNumber> m_havedownloadQueue; // all task queue
     std::set<DataNumber> m_lostPiecesl;/// lost packets will be stored here till retransmission
     CongestionCtlConfig ccConfig;/// congestion config file
     std::map<basefw::ID, std::shared_ptr<SessionStreamController>> m_sessStreamCtlMap;/// map session id to sessionstream

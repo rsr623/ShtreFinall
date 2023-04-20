@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/MPD/mmsys23-main/mpd/MPDtest.cpp" "/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir/MPDtest.cpp.o"
-  "/home/MPD/mmsys23-main/demo/demotransportcontroller.cpp" "/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir/__/demo/demotransportcontroller.cpp.o"
-  "/home/MPD/mmsys23-main/demo/utils/defaultclock.cpp" "/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/defaultclock.cpp.o"
-  "/home/MPD/mmsys23-main/demo/utils/thirdparty/quiche/quic_clock.cpp" "/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/thirdparty/quiche/quic_clock.cpp.o"
-  "/home/MPD/mmsys23-main/demo/utils/thirdparty/quiche/quic_time.cpp" "/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/thirdparty/quiche/quic_time.cpp.o"
-  "/home/MPD/mmsys23-main/demo/utils/thirdparty/quiche/rtt_stats.cpp" "/home/MPD/mmsys23-main/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/thirdparty/quiche/rtt_stats.cpp.o"
+  "/home/MPD/GCShtreFinall/mpd/MPDtest.cpp" "/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir/MPDtest.cpp.o"
+  "/home/MPD/GCShtreFinall/demo/demotransportcontroller.cpp" "/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir/__/demo/demotransportcontroller.cpp.o"
+  "/home/MPD/GCShtreFinall/demo/utils/defaultclock.cpp" "/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/defaultclock.cpp.o"
+  "/home/MPD/GCShtreFinall/demo/utils/thirdparty/quiche/quic_clock.cpp" "/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/thirdparty/quiche/quic_clock.cpp.o"
+  "/home/MPD/GCShtreFinall/demo/utils/thirdparty/quiche/quic_time.cpp" "/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/thirdparty/quiche/quic_time.cpp.o"
+  "/home/MPD/GCShtreFinall/demo/utils/thirdparty/quiche/rtt_stats.cpp" "/home/MPD/GCShtreFinall/mpd/CMakeFiles/MPDtest.dir/__/demo/utils/thirdparty/quiche/rtt_stats.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

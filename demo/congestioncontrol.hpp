@@ -726,11 +726,11 @@ private:
     
     bool m_fast_convergence{ 0 };
     bool m_tcp_friendliness{ 0 };
-    bool m_olia{ 0 };
+    bool m_olia{ 1 };
     uint32_t m_minCwnd{ 1 };
     uint32_t m_maxCwnd{ 64 };
     uint32_t m_ssThresh{ 32 };/** slow start threshold*/
-    uint32_t lossThresh{ 1 };
+    uint32_t lossThresh{ 0 };
     uint32_t lossnum{ 0 };
 };
 

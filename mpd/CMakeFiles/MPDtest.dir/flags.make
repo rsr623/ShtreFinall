@@ -6,5 +6,5 @@ CXX_FLAGS = -g -Wall -Wextra -std=c++11 -Wno-unused-parameter -Wno-format -Wno-u
 
 CXX_DEFINES = -DCACHE_SIZE_16K=50000 -DLINUX_X86_PLAT -DOPEN_LAB_TRACE -DPARTNER_ISURECLOUD -DSPDLOG_LEVEL_TRACE=0
 
-CXX_INCLUDES = -I/home/MPD/mmsys23-main -I/home/MPD/mmsys23-main/mpd -I/home/MPD/mmsys23-main/mpd/app -I/home/MPD/mmsys23-main/mpd/basefw -I/home/MPD/mmsys23-main/mpd/basefw/base -I/home/MPD/mmsys23-main/mpd/download/transportcontroller -I/home/MPD/mmsys23-main/mpd/third_lib/json/single_include -I/home/MPD/mmsys23-main/demo/utils -I/home/MPD/mmsys23-main/demo 
+CXX_INCLUDES = -I/home/MPD/GCShtreFinall -I/home/MPD/GCShtreFinall/mpd -I/home/MPD/GCShtreFinall/mpd/app -I/home/MPD/GCShtreFinall/mpd/basefw -I/home/MPD/GCShtreFinall/mpd/basefw/base -I/home/MPD/GCShtreFinall/mpd/download/transportcontroller -I/home/MPD/GCShtreFinall/mpd/third_lib/json/single_include -I/home/MPD/GCShtreFinall/demo/utils -I/home/MPD/GCShtreFinall/demo 
 

@@ -61,7 +61,7 @@ bool DemoTransportCtl::StartTransportController(TransportDownloadTaskInfo tansDl
     m_sessionData = std::make_shared<CrossSessionData>();
 
     m_multipathscheduler.reset(
-            new RRMultiPathScheduler(m_tansDlTkInfo.m_rid, m_sessStreamCtlMap, m_downloadPieces, m_lostPiecesl));
+            new RRMultiPathScheduler(m_tansDlTkInfo.m_rid, m_sessStreamCtlMap, m_downloadPieces, m_havedownloadQueue, m_lostPiecesl));
     m_multipathscheduler->StartMultiPathScheduler(shared_from_this());
     return true;
 }

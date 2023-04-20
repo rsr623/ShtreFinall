@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <set>
+#include <unordered_set>
 #include "basefw/base/log.h"
 #include "multipathschedulerI.h"
 #include <numeric>
@@ -21,8 +22,8 @@ public:
 
     explicit RRMultiPathScheduler(const fw::ID& taskid,
             std::map<fw::ID, fw::shared_ptr<SessionStreamController>>& dlsessionmap,
-            std::set<DataNumber>& downloadQueue, std::set<int32_t>& lostPiecesQueue)
-            : MultiPathSchedulerAlgo(taskid, dlsessionmap, downloadQueue, lostPiecesQueue)
+            std::set<DataNumber>& downloadQueue, std::unordered_set<DataNumber>& havedownloadQueue, std::set<int32_t>& lostPiecesQueue)
+            : MultiPathSchedulerAlgo(taskid, dlsessionmap, downloadQueue, havedownloadQueue, lostPiecesQueue)
     {
         SPDLOG_DEBUG("taskid :{}", taskid.ToLogStr());
     }
@@ -185,7 +186,12 @@ public:
         SPDLOG_DEBUG("session:{}, seq:{}, pno:{}, recvtime:{}",
                 sessionid.ToLogStr(), seq, pno, recvtime.ToDebuggingValue());
         /// rx and tx signal are forwarded directly from transport controller to session controller
-
+        if(m_havedownloadQueue.find(pno) == m_havedownloadQueue.end())
+        {
+            auto &&itor_pair = m_havedownloadQueue.emplace(pno);
+            SPDLOG_DEBUG("session:{}, seq:{}, pno:{}, recvtime:{}, add into havedownloadqueue",
+                sessionid.ToLogStr(), seq, pno, recvtime.ToDebuggingValue());
+        }
         DoSinglePathSchedule(sessionid);
     }
 
@@ -219,7 +225,10 @@ private:
         for (auto itor = setNeedDlSubpiece.begin();
              itor != setNeedDlSubpiece.end() && vecSubpieces.size() < u32CanSendCnt;)
         {
-            vecSubpieces.emplace_back(*itor);
+            if(m_havedownloadQueue.find(*itor) == m_havedownloadQueue.end())
+            {
+                vecSubpieces.emplace_back(*itor);
+            }
             setNeedDlSubpiece.erase(itor++);
         }
 
@@ -246,14 +255,17 @@ private:
         SPDLOG_TRACE("");
         for (auto&& lostpiece: m_lostPiecesQueue)
         {
-            auto&& itor_pair = m_downloadQueue.emplace(lostpiece);
-            if (itor_pair.second)
+            if(m_havedownloadQueue.find(lostpiece) == m_havedownloadQueue.end())
             {
-                SPDLOG_TRACE("lost piece {} inserts successfully", lostpiece);
-            }
-            else
-            {
-                SPDLOG_TRACE("lost piece {} already in task queue", lostpiece);
+                auto&& itor_pair = m_downloadQueue.emplace(lostpiece);
+                if (itor_pair.second)
+                {
+                    SPDLOG_TRACE("lost piece {} inserts successfully", lostpiece);
+                }
+                else
+                {
+                    SPDLOG_TRACE("lost piece {} already in task queue", lostpiece);
+                }
             }
         }
         m_lostPiecesQueue.clear();

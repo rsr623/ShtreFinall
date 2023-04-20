@@ -3,6 +3,7 @@
 #pragma once
 
 #include <map>
+#include <unordered_set>
 #include "basefw/base/hash.h"
 #include "basefw/base/shared_ptr.h"
 #include "sessionstreamcontroller.hpp"
@@ -32,9 +33,9 @@ class MultiPathSchedulerAlgo
 public:
     explicit MultiPathSchedulerAlgo(const fw::ID& taskid,
             std::map<fw::ID, fw::shared_ptr<SessionStreamController>>& dlsessionmap,
-            std::set<DataNumber>& downloadQueue, std::set<int32_t>& lostPiecesQueue)
+            std::set<DataNumber>& downloadQueue, std::unordered_set<DataNumber>&havedownloadQueue, std::set<int32_t>& lostPiecesQueue)
             : m_taskid(taskid), m_dlsessionmap(dlsessionmap),
-              m_downloadQueue(downloadQueue), m_lostPiecesQueue(lostPiecesQueue)
+              m_downloadQueue(downloadQueue), m_havedownloadQueue(havedownloadQueue), m_lostPiecesQueue(lostPiecesQueue)
     {
     }
 
@@ -71,6 +72,7 @@ protected:
     fw::ID m_taskid;
     std::map<fw::ID, fw::shared_ptr<SessionStreamController>>& m_dlsessionmap;
     std::set<DataNumber>& m_downloadQueue; // main task queue
+    std::unordered_set<DataNumber>& m_havedownloadQueue; // all task queue
     std::set<DataNumber>& m_lostPiecesQueue;// the lost pieces queue, waiting to be retransmitted
 };
 
